@@ -1,16 +1,18 @@
 {
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.1",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  },
   "name": "mission2-turners-insurance-backend",
   "version": "1.0.0",
   "description": "A backend system for Turners Cars Insurance, providing APIs to calculate car values, assess driver risk ratings, and generate insurance quotes based on custom business rules.",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.21.1"
-  }
+  "license": "ISC"
 }
