@@ -5,7 +5,7 @@ const carValueRoutes = require("./car-value-api/index");
 
 const app = express();
 
-// add your route after importing
+// add route to your api here
 app.use(carValueRoutes);
 
 const PORT = 3000;
