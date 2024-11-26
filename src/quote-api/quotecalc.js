@@ -1,3 +1,10 @@
+// testing
+router.get("/car-value", (req, res) => {
+    res.json({
+      message: "Testing Car Value API. Yay it works!",
+    });
+  });
+
 function calculatePremium(carValue, driverRating) {
     // Validate inputs
 
