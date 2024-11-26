@@ -14,7 +14,7 @@ apiRouter.use(carValueRoutes);
 const app = express();
 
 // middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 // rest api
 app.use("/api", apiRouter);
