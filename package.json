@@ -1,9 +1,6 @@
 {
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "express": "^4.21.1",
-    "jest": "^29.7.0",
-    "supertest": "^7.0.0"
+    "express": "^4.21.1"
   },
   "name": "mission2-turners-insurance-backend",
   "version": "1.0.0",
@@ -16,8 +13,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-
   "devDependencies": {
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }

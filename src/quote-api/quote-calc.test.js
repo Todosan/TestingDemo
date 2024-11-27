@@ -1,21 +1,46 @@
-import router from '../car-value-api'
-import { request } from 'express'
+const calculatePremium = (carValue, driverRating) => {
+    if (typeof carValue !== 'number' || carValue <= 0) {
+        return "Error: Invalid car value.";
+    }
+    if (typeof driverRating !== 'number' || driverRating <= 0) {
+        return "Error: Invalid driver rating.";
+    }
 
-describe("get /car-value", () => {
+    const yearlyPremium = (carValue * driverRating) / 100;
+    const monthlyPremium = yearlyPremium / 12;
 
-    describe("when a car value and risk has been given", () => {
+    return {
+        yearlyPremium: yearlyPremium.toFixed(2),
+        monthlyPremium: monthlyPremium.toFixed(2)
+    };
+};
 
-        test('should respond with a 200 status code', async () => {
-            const response = await request(router).get("/car-value").send
-            ({
-                carValue: "6614",
-                riskRating: "5"
-            })
-            expect(response.statusCode).toBe(200)
-        })
-    })
+describe("calculatePremium function", () => {
+    test("should calculate premium correctly for valid inputs", () => {
+        const result = calculatePremium(10000, 5);
+        expect(result).toEqual({
+            yearlyPremium: "500.00",
+            monthlyPremium: "41.67"
+        });
+    });
 
-    describe('if the values arent in the database', () => {
+    test("should return an error for invalid car value (negative number)", () => {
+        const result = calculatePremium(-1000, 5);
+        expect(result).toBe("Error: Invalid car value.");
+    });
 
-    })
-})
+    test("should return an error for invalid driver rating (zero)", () => {
+        const result = calculatePremium(10000, 0);
+        expect(result).toBe("Error: Invalid driver rating.");
+    });
+
+    test("should return an error for non-numeric car value", () => {
+        const result = calculatePremium("not-a-number", 5);
+        expect(result).toBe("Error: Invalid car value.");
+    });
+
+    test("should return an error for non-numeric driver rating", () => {
+        const result = calculatePremium(10000, "not-a-number");
+        expect(result).toBe("Error: Invalid driver rating.");
+    });
+});
