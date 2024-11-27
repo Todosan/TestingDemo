@@ -27,9 +27,5 @@ function calculatePremium(carValue, driverRating) {
     };
 }
 
-// Example usage:
-const carValue = 6614;
-const driverRating = 5;
-
 const result = calculatePremium(carValue, driverRating);
 console.log(result);
