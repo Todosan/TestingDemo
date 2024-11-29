@@ -1,19 +1,4 @@
-const calculatePremium = (carValue, driverRating) => {
-    if (typeof carValue !== 'number' || carValue <= 0) {
-        return "Error: Invalid car value.";
-    }
-    if (typeof driverRating !== 'number' || driverRating <= 0) {
-        return "Error: Invalid driver rating.";
-    }
-
-    const yearlyPremium = (carValue * driverRating) / 100;
-    const monthlyPremium = yearlyPremium / 12;
-
-    return {
-        yearlyPremium: yearlyPremium.toFixed(2),
-        monthlyPremium: monthlyPremium.toFixed(2)
-    };
-};
+const calculatePremium = require('./quotecalc.js')
 
 describe("calculatePremium function", () => {
     test("should calculate premium correctly for valid inputs", () => {
@@ -29,8 +14,8 @@ describe("calculatePremium function", () => {
         expect(result).toBe("Error: Invalid car value.");
     });
 
-    test("should return an error for invalid driver rating (zero)", () => {
-        const result = calculatePremium(10000, 0);
+    test("should return an error for invalid driver rating (-one)", () => {
+        const result = calculatePremium(10000, -1);
         expect(result).toBe("Error: Invalid driver rating.");
     });
 

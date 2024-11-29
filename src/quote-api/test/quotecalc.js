@@ -1,7 +1,7 @@
+// calculatePremium.js
 
-function calculatePremium(carValue, driverRating) {
+function calculatePremium(carValue, driverRating) { 
     // Validate inputs
-
     if (typeof carValue !== 'number' || carValue <= 0) {
         return "Error: Invalid car value.";
     }
@@ -21,5 +21,5 @@ function calculatePremium(carValue, driverRating) {
     };
 }
 
-const result = calculatePremium(carValue, driverRating);
-console.log(result);
+// Export the function
+module.exports = calculatePremium;

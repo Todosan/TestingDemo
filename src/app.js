@@ -3,12 +3,14 @@ const bodyParser = require("body-parser");
 
 // import your api here
 const carValueRoutes = require("./car-value-api/index");
+const premiumRoute = require('./quote-api/quoteindex')
 
 // init Router
 const apiRouter = express.Router();
 
 // add routes to apiRouter here
 apiRouter.use(carValueRoutes);
+apiRouter.use(premiumRoute)
 
 // start server
 const app = express();
